@@ -1,0 +1,19 @@
+{
+  "name": "moein/oapition",
+  "type": "library",
+  "description": "oapi, for people who hate rest",
+  "keywords": ["oapi", "api", "no rest api"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "moein.ak@gmail.com",
+      "email": "hey@moein.tech"
+    }
+  ],
+  "require": {
+    "php": "^7.2"
+  },
+  "autoload": {
+    "psr-4": { "Oapition\\": "" }
+  }
+}
