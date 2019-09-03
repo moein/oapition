@@ -1,0 +1,14 @@
+services:
+    # Oapition config
+    Oapition\:
+        resource: '../src/*'
+        exclude:
+          - '../src/Action/ActionRunner.php'
+          - '../src/Handler/Exception/*'
+          - '../src/Action/Exception/*'
+          - '../src/Action/Output/*'
+
+    _instanceof:
+        # services whose classes are instances of CustomInterface will be tagged automatically
+        Oapition\Action\Action:
+            tags: ['oapition.action']
