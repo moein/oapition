@@ -2,30 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b4dfc86-c936-4f92-8540-1bdcdf3900c9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/oapition.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/oapition.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Action.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Action.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/ActionRunner.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/ActionRunner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/ActionRunnerBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/ActionRunnerBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Exception/ActionCallException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Exception/ActionCallException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Exception/ActionClassNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Exception/ActionClassNotFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Exception/ActionNotCallableObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Exception/ActionNotCallableObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Exception/InvalidAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Exception/InvalidAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Exception/InvalidActionClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Exception/InvalidActionClass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Exception/InvalidInput.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Exception/InvalidInput.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Input/CustomInputClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Input/CustomInputClass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Input/InputBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Input/InputBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Input/UserAwareInput.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Input/UserAwareInput.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Output/EmptyOutput.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Output/EmptyOutput.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Output/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Output/Error.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Action/Output/Output.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/Output/Output.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DependencyInjection/ActionPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DependencyInjection/ActionPass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/Exception/ActionNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handler/Exception/ActionNotFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/JsonHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handler/JsonHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helper/LoggerAwareTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helper/LoggerAwareTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/oapition.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -122,6 +104,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../browdi" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -157,16 +140,23 @@
       <option name="presentableId" value="Default" />
       <updated>1567186734322</updated>
       <workItem from="1567186735592" duration="1533000" />
-      <workItem from="1567533746742" duration="160000" />
+      <workItem from="1567533746742" duration="653000" />
     </task>
+    <task id="LOCAL-00001" summary="Added service config">
+      <created>1567533964866</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567533964867</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1693000" />
+    <option name="totallyTimeSpent" value="2186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="2560" height="1442" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25179" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -194,6 +184,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added service config" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added service config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
