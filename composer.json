@@ -16,6 +16,6 @@
     "symfony/validator": "4.3.*"
   },
   "autoload": {
-    "psr-4": { "Oapition\\": "src/" }
+    "psr-4": { "Oapition\\": "src" }
   }
 }
