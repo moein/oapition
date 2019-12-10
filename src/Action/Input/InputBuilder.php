@@ -6,7 +6,9 @@ use Oapition\Action\Exception\InvalidInput;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
+use Symfony\Component\Validator\GroupSequenceProviderInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 
 class InputBuilder
 {
@@ -44,7 +46,8 @@ class InputBuilder
 
         $input = $this->serializer->deserialize(json_encode($payload), $inputClass, 'json', ['default_constructor_arguments' => false, ObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true]);
 
-        $validationResult = $this->validator->validate($input);
+        $groups = $input instanceof GroupSequenceProviderInterface ? $input->getGroupSequence() : null;
+        $validationResult = $this->validator->validate($input, null, $groups);
         if (count($validationResult) === 0) {
             return $input;
         }
