@@ -3,10 +3,12 @@
 namespace Oapition\Action;
 
 use Oapition\Action\Exception\ActionCallException;
+use Oapition\Action\Input\HttpAwareInput;
 use Oapition\Action\Input\InputBuilder;
 use Oapition\Action\Exception\ActionClassNotFound;
 use Oapition\Action\Exception\ActionNotCallableObject;
 use Oapition\Action\Input\UserAwareInput;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class ActionRunnerBuilder
@@ -19,14 +21,14 @@ class ActionRunnerBuilder
     /**
      * @var InputBuilder
      */
-    private $requestBuilder;
+    private $inputBuilder;
 
     /**
-     * @param InputBuilder $requestBuilder
+     * @param InputBuilder $inputBuilder
      */
-    public function __construct(InputBuilder $requestBuilder)
+    public function __construct(InputBuilder $inputBuilder)
     {
-        $this->requestBuilder = $requestBuilder;
+        $this->inputBuilder = $inputBuilder;
     }
 
     /**
@@ -44,23 +46,27 @@ class ActionRunnerBuilder
     /**
      * @param string $actionClass
      * @param array $payload
+     * @param Request $httpRequest
      * @param null|UserInterface $user
      * @return ActionRunner
      */
-    public function build(string $actionClass, array $payload, ?UserInterface $user)
+    public function build(string $actionClass, array $payload, Request $httpRequest, ?UserInterface $user)
     {
         $action = $this->actions[$actionClass] ?? null;
         if ($action === null) {
             throw new ActionClassNotFound($actionClass);
         }
-        $request = $this->requestBuilder->build($action, $payload);
-        if ($request instanceof UserAwareInput) {
+        $input = $this->inputBuilder->build($action, $payload);
+        if ($input instanceof UserAwareInput) {
             if ($user === null) {
                 throw new ActionCallException('auth_required', ['User authentication for this action is required']);
             }
-            $request->setUser($user);
+            $input->setUser($user);
+        }
+        if ($input instanceof HttpAwareInput) {
+            $input->setRequest($httpRequest);
         }
 
-        return new ActionRunner($action, $request);
+        return new ActionRunner($action, $input);
     }
 }

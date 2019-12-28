@@ -75,7 +75,7 @@ class JsonHandler
         }
 
         try {
-            $actionRunner = $this->actionRunnerBuilder->build($actionClass, $payload, $user);
+            $actionRunner = $this->actionRunnerBuilder->build($actionClass, $payload, $request, $user);
             $output = $actionRunner->run();
 
             return $this->serialize($output, null, null);
