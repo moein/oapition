@@ -23,13 +23,20 @@ class InputBuilder
     private $validator;
 
     /**
+     * @var InputPreprocessor
+     */
+    private $inputPreprocessor;
+
+    /**
      * @param SerializerInterface $serializer
      * @param ValidatorInterface $validator
+     * @param InputPreprocessor $inputPreprocessor
      */
-    public function __construct(SerializerInterface $serializer, ValidatorInterface $validator)
+    public function __construct(SerializerInterface $serializer, ValidatorInterface $validator, InputPreprocessor $inputPreprocessor)
     {
         $this->serializer = $serializer;
         $this->validator = $validator;
+        $this->inputPreprocessor = $inputPreprocessor;
     }
 
     /**
@@ -45,6 +52,7 @@ class InputBuilder
         }
 
         $input = $this->serializer->deserialize(json_encode($payload), $inputClass, 'json', ['default_constructor_arguments' => false, ObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true]);
+        $this->inputPreprocessor->process($input);
 
         $groups = $input instanceof GroupSequenceProviderInterface ? $input->getGroupSequence() : null;
         $validationResult = $this->validator->validate($input, null, $groups);

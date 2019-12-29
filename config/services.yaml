@@ -6,6 +6,7 @@ services:
           - '../src/Action/ActionRunner.php'
           - '../src/Handler/Exception/*'
           - '../src/Action/Exception/*'
+          - '../src/Action/Annotation/*'
           - '../src/Action/Output/*'
 
     _instanceof:
