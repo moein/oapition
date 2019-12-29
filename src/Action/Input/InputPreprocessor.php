@@ -2,23 +2,23 @@
 
 namespace Oapition\Action\Input;
 
-use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\Reader;
 use Oapition\Action\Annotation\Input\Preprocessor\InputFieldPreprocessor;
 use Oapition\Action\Annotation\Input\Preprocessor\InputFieldPreprocessorHandler;
 
 class InputPreprocessor
 {
     /**
-     * @var AnnotationReader
+     * @var Reader
      */
-    private $annotationReader;
+    private $reader;
 
     /**
-     * @param AnnotationReader $annotationReader
+     * @param Reader $reader
      */
-    public function __construct(AnnotationReader $annotationReader)
+    public function __construct(Reader $reader)
     {
-        $this->annotationReader = $annotationReader;
+        $this->reader = $reader;
     }
 
     public function process($input)
@@ -27,7 +27,7 @@ class InputPreprocessor
 
         foreach ($input as $propertyName) {
             $property = $reflectionClass->getProperty($propertyName);
-            $annotations = $this->annotationReader->getPropertyAnnotations($property);
+            $annotations = $this->reader->getPropertyAnnotations($property);
             foreach ($annotations as $annotation) {
                 if (!$annotation instanceof InputFieldPreprocessor) {
                     continue;
