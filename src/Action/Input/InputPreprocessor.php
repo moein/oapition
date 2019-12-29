@@ -25,7 +25,7 @@ class InputPreprocessor
     {
         $reflectionClass = new \ReflectionClass(get_class($input));
 
-        foreach ($input as $propertyName) {
+        foreach ($input as $propertyName => $propertyValue) {
             $property = $reflectionClass->getProperty($propertyName);
             $annotations = $this->reader->getPropertyAnnotations($property);
             foreach ($annotations as $annotation) {
@@ -35,9 +35,8 @@ class InputPreprocessor
 
                 /** @var InputFieldPreprocessorHandler $handlerClass */
                 $handlerClass = get_class($annotation).'Handler';
-                $value = $input->$propertyName;
-                if ($value !== null) {
-                    $input->$propertyName = $handlerClass->handle($annotation, $value);
+                if ($propertyValue !== null) {
+                    $input->$propertyName = $handlerClass->handle($annotation, $propertyValue);
                 }
             }
         }
