@@ -3,7 +3,10 @@
 namespace Oapition\Action\Input;
 
 use Oapition\Action\Exception\InvalidInput;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\GroupSequenceProviderInterface;
@@ -12,11 +15,6 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class InputBuilder
 {
-    /**
-     * @var SerializerInterface
-     */
-    private $serializer;
-
     /**
      * @var ValidatorInterface
      */
@@ -28,13 +26,11 @@ class InputBuilder
     private $inputPreprocessor;
 
     /**
-     * @param SerializerInterface $serializer
      * @param ValidatorInterface $validator
      * @param InputPreprocessor $inputPreprocessor
      */
-    public function __construct(SerializerInterface $serializer, ValidatorInterface $validator, InputPreprocessor $inputPreprocessor)
+    public function __construct(ValidatorInterface $validator, InputPreprocessor $inputPreprocessor)
     {
-        $this->serializer = $serializer;
         $this->validator = $validator;
         $this->inputPreprocessor = $inputPreprocessor;
     }
@@ -51,7 +47,8 @@ class InputBuilder
             return null;
         }
 
-        $input = $this->serializer->deserialize(json_encode($payload), $inputClass, 'json', ['default_constructor_arguments' => false, ObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true]);
+        $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
+        $input = $serializer->deserialize(json_encode($payload), $inputClass, 'json', ['default_constructor_arguments' => false, ObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true]);
         $this->inputPreprocessor->process($input);
 
         $groups = $input instanceof GroupSequenceProviderInterface ? $input->getGroupSequence() : null;
