@@ -12,9 +12,9 @@
   ],
   "require": {
     "php": "^7.2",
-    "symfony/serializer": "4.3.*",
-    "symfony/validator": "4.3.*",
-    "symfony/property-info": "4.3.*",
+    "symfony/serializer": "^4.3",
+    "symfony/validator": "^4.3",
+    "symfony/property-info": "^4.3",
     "phpdocumentor/reflection-docblock": "^4.3",
     "doctrine/annotations": "^1.8"
   },
