@@ -12,10 +12,10 @@
   ],
   "require": {
     "php": "^7.2",
-    "symfony/serializer": "4.3.*",
-    "symfony/validator": "4.3.*",
-    "symfony/property-info": "4.3.*",
-    "phpdocumentor/reflection-docblock": "^4.3",
+    "symfony/serializer": "^5.0",
+    "symfony/validator": "^5.0",
+    "symfony/property-info": "^5.0",
+    "phpdocumentor/reflection-docblock": "^5.0",
     "doctrine/annotations": "^1.8"
   },
   "autoload": {
